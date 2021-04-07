@@ -6,11 +6,37 @@
 
     <groupId>xyz.andornot</groupId>
     <artifactId>javaland</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-</version>
+    <modules>
+        <module>java-feature</module>
+    </modules>
 
     <properties>
-        <maven.compiler.source>15</maven.compiler.source>
-        <maven.compiler.target>15</maven.compiler.target>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
     </properties>
-    
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <release>16</release>
+                    <compilerArgs>
+                        --enable-preview
+                    </compilerArgs>
+                </configuration>
+                <version>3.8.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>--enable-preview</argLine>
+                </configuration>
+                <version>2.22.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
